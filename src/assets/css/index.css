@@ -1,0 +1,101 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Mettere come classe .img-fluid se necessario */
+img {
+    display: block;
+    max-width: 100%;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ul {
+    list-style-type: none;
+}
+
+
+
+/* DEBUG */
+.debug ,
+.debug * {
+    padding: 5px;
+    background-color: #ff000022;
+    border: 2px dashed red;
+}
+
+
+
+/* ⚙️ VARIABILI ⚙️ */
+:root {
+    --col-spacing: 1rem;
+}
+
+
+
+/* UTILS */
+section {
+    padding: calc(2 * var(--col-spacing)) 0;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 calc(var(--col-spacing) * -1);
+    row-gap: calc(2 * var(--col-spacing));
+}
+.row [class*="col"] {
+    padding: 0 var(--col-spacing);
+}
+.row-no-gap {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    row-gap: 0;
+}
+.row-no-gap [class*="col"] {
+    padding: 0;
+}
+.col-100 {
+    width: 100%;
+}
+.col-1-2 {
+    width: calc(100% / 2);
+}
+.col-1-3 {
+    width: calc(100% / 3);
+}
+.col-2-3 {
+    width: calc(100% / 3 * 2);
+}
+.col-1-4 {
+    width: calc(100% / 4);
+}
+.col-3-4 {
+    width: calc(100% / 4 * 3);
+}
+.col-1-5 {
+    width: calc(100% / 5);
+}
+.col-4-5 {
+    width: calc(100% / 5 * 4);
+}
+.col-1-6 {
+    width: calc(100% / 6);
+}
+.col-5-6 {
+    width: calc(100% / 6 * 5);
+}
+.btn {
+    font-family: inherit;
+    cursor: pointer;
+    display: inline-block;
+    background-color: transparent;
+    border: 0;
+}
