@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 
 
@@ -9,7 +10,7 @@ const apiUrl = "https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts"
 const postInitialData = {
     author: "",
     title: "",
-    body: "", // todo: USARE TEXTAREA (VALUE TROVATO DENTRO AL TAG INVECE CHE COME ATTRIBUTO)
+    body: "",
     public: false,
 }
 
@@ -19,7 +20,7 @@ export default function Main () {
 
     const [postData, setPostData] =  useState(postInitialData);
 
-    console.debug(postData);
+    // console.debug(postData);
     
     const handleInputChange = (e) => {
         // console.log(e.target.value);
@@ -31,7 +32,18 @@ export default function Main () {
         setPostData({ ...postData, [e.target.name]: e.target.value})
     } 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+
+        console.debug(postData);
+
+        axios
+            .post(apiUrl, postData)
+            .then(response => {
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error("ERRORE: ", error)
+            })
     } 
 
     return (
@@ -51,6 +63,7 @@ export default function Main () {
                                     value={postData.author}
                                     onChange={handleInputChange}
                                     name="author"
+                                    required
 
                                     type="text" 
                                     className="form-control" 
@@ -65,6 +78,7 @@ export default function Main () {
                                     value={postData.title}
                                     onChange={handleInputChange}
                                     name="title"
+                                    required
 
                                     type="text" 
                                     className="form-control" 
@@ -79,6 +93,7 @@ export default function Main () {
                                     value={postData.body}
                                     onChange={handleInputChange}
                                     name="body"
+                                    required
 
                                     className="form-control" 
                                     id="postBody" 
@@ -92,6 +107,7 @@ export default function Main () {
                                     checked={postData.public}
                                     onChange={handleInputChange}
                                     name="public"
+                                    required
 
                                     type="checkbox" 
                                     className="form-check-input" 
