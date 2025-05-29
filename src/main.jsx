@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 // Import all of Bootstrap’s JS
 import * as bootstrap from 'bootstrap'
 
-// import './assets/css/index.css'
+import './assets/css/index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
